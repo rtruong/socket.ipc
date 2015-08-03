@@ -1,0 +1,43 @@
+{
+  "name": "socket.ipc",
+  "version": "1.0.0",
+  "description": "Socket.IO semantics for Electron IPC",
+  "main": "target/index.js",
+  "scripts": {
+    "install": "coffee --compile --output target/ src/main/",
+    "clean": "trash --force target",
+    "prelint": "npm run clean",
+    "lint": "coffeelint src/",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive --compilers coffee:coffee-script/register --require ./register-istanbul src/test/",
+    "posttest": "istanbul report text-summary lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtruong/socket.ipc.git"
+  },
+  "author": "Richard Truong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rtruong/socket.ipc/issues"
+  },
+  "devDependencies": {
+    "chai": "3.2.0",
+    "coffee-coverage": "0.6.2",
+    "coffeelint": "1.10.1",
+    "coveralls": "2.11.3",
+    "istanbul": "0.3.17",
+    "jsdom": "3.1.2",
+    "mocha": "2.2.5",
+    "mockery": "1.4.0",
+    "sinon": "1.15.4",
+    "trash": "1.4.1"
+  },
+  "dependencies": {
+    "coffee-script": "1.9.3",
+    "is-electron-renderer": "2.0.0",
+    "jquery": "2.1.4",
+    "lodash": "3.10.0",
+    "node-uuid": "1.4.3"
+  }
+}
